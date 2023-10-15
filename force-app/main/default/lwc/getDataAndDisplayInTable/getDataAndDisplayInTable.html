@@ -1,0 +1,51 @@
+<template>
+  <div if:true={showForm}>
+    <lightning-card title="Registration Form">
+      <lightning-button
+        label="Show Data"
+        slot="actions"
+        onclick={showDataHandler}
+      ></lightning-button>
+
+      <lightning-input
+        type="text"
+        label="Name"
+        name="Name"
+        value={Name}
+        class="slds-m-around_medium"
+        onchange={handleName}
+        required
+      ></lightning-input>
+      <lightning-input
+        label="Age"
+        type="Number"
+        name="Age"
+        value={Age}
+        class="slds-m-around_medium"
+        onchange={handleAge}
+        required
+      ></lightning-input>
+      <lightning-combobox
+        options={genderOption}
+        label="Gender"
+        name="Gender"
+        value={Gender}
+        class="slds-m-around_medium"
+        onchange={handleGender}
+        required
+      ></lightning-combobox>
+      <lightning-button
+        label="Submit"
+        slot="footer"
+        onclick={handleSubmit}
+      ></lightning-button>
+    </lightning-card>
+  </div>
+
+  <div if:true={showDataBol}>
+    <c-display-data-in-table
+      table-data={userData}
+      onshowform={showFormHandler}
+    ></c-display-data-in-table>
+  </div>
+</template>

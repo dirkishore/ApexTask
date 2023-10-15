@@ -1,0 +1,16 @@
+<template>
+  <lightning-card title="Table" if:true={showDataBol}>
+    <lightning-button
+      label="Back"
+      slot="actions"
+      onclick={showFormHandler}
+    ></lightning-button>
+
+    <lightning-datatable
+      data={tableData}
+      columns={columns}
+      key-field="id"
+    ></lightning-datatable>
+  </lightning-card>
+  <!-- <div if:false={showDataBol}></div> -->
+</template>

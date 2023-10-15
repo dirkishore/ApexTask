@@ -1,0 +1,20 @@
+<template>
+  <lightning-card>
+    <lightning-input
+      label="Name"
+      name="Name"
+      class="slds-m-around_medium"
+      onchange={handleName}
+    ></lightning-input>
+
+    <div class="slds-m-around_medium">
+      <c-display-name-from-parent
+        user-name={userName}
+      ></c-display-name-from-parent>
+
+      <c-display-name-from-parent-in-child-two
+        get-name-from-parent={userName}
+      ></c-display-name-from-parent-in-child-two>
+    </div>
+  </lightning-card>
+</template>

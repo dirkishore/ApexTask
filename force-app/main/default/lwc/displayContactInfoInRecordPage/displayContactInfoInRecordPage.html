@@ -1,0 +1,86 @@
+<template>
+  <div class="slds-p-around_medium">
+    <div class="slds-box box-shadow:3px 3px 10px black slds-m-bottom_medium">
+      <lightning-card title="Account Info">
+        <lightning-record-view-form
+          object-api-name={objectApiName}
+          record-id={recordId}
+        >
+          <lightning-layout>
+            <lightning-layout-item padding="around-small">
+              <lightning-output-field
+                field-name="Name"
+              ></lightning-output-field>
+            </lightning-layout-item>
+
+            <lightning-layout-item padding="around-small">
+              <lightning-output-field
+                field-name="Phone"
+              ></lightning-output-field>
+            </lightning-layout-item>
+
+            <lightning-layout-item padding="around-small">
+              <lightning-output-field
+                field-name="Rating"
+              ></lightning-output-field>
+            </lightning-layout-item>
+
+            <lightning-layout-item padding="around-small">
+              <lightning-output-field
+                field-name="OwnerId"
+              ></lightning-output-field>
+            </lightning-layout-item>
+          </lightning-layout>
+        </lightning-record-view-form>
+      </lightning-card>
+    </div>
+
+    <div class="slds-box">
+      <lightning-card title="Details">
+        <div class="slds-p-horizontal_medium">
+          <lightning-combobox
+            options={contactLst}
+            label="Contacts"
+            name="contact"
+            onchange={handleInput}
+          ></lightning-combobox>
+          <lightning-dual-listbox
+            options={areaOfInterestOption}
+            label="Area Of Interest"
+            name="areaOfInterest"
+            onchange={handleInput}
+          ></lightning-dual-listbox>
+          <lightning-combobox
+            options={gradeOption}
+            label="Grade"
+            name="grade"
+            onchange={handleInput}
+          ></lightning-combobox>
+          <lightning-checkbox-group
+            label="Language Known"
+            name="languageKnown"
+            value={value}
+            options={languageKnownOption}
+            onchange={handleInput}
+          ></lightning-checkbox-group>
+          <lightning-layout class="slds-align_absolute-center">
+            <lightning-layout-item padding="around-small">
+              <lightning-button
+                variant="brand"
+                onclick={submitHandler}
+                label="Submit"
+              ></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item>
+              <lightning-button
+                variant="brand-outline"
+                label="Cancel"
+                onclick={closeAction}
+              ></lightning-button>
+            </lightning-layout-item>
+          </lightning-layout>
+        </div>
+      </lightning-card>
+    </div>
+  </div>
+</template>

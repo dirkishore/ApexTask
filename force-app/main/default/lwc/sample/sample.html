@@ -1,0 +1,26 @@
+<template>
+  <lightning-card class="slds-p-around_medium">
+    <lightning-input
+      label="Name"
+      name="Name"
+      onchange={handleName}
+      class="slds-m-around_medium"
+    ></lightning-input>
+    <lightning-input
+      label="Email"
+      name="Email"
+      class="slds-m-around_medium"
+    ></lightning-input>
+
+    <div class="btn-container">
+      <lightning-button
+        label="Submit"
+        onclick={handleSubmit}
+      ></lightning-button>
+    </div>
+
+    <div class="slds-align_absolute-center">
+      <p id="displayName" class="slds-p-around_medium"></p>
+    </div>
+  </lightning-card>
+</template>

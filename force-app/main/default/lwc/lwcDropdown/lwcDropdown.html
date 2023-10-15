@@ -1,0 +1,35 @@
+<template>
+  <lightning-card title="Display an account based on Rating">
+    <div class="slds-p-around_medium">
+      <lightning-combobox
+        label="Rating"
+        name="rating"
+        value={ratingValue}
+        options={comboBoxOption}
+        onchange={handleRating}
+      ></lightning-combobox>
+      <div class="slds-align_absolute-center slds-m-top_medium">
+        <lightning-button
+          label="Refresh table"
+          onclick={refreshTable}
+        ></lightning-button>
+      </div>
+    </div>
+  </lightning-card>
+
+  <div class="slds-m-top_medium table-container">
+    <template if:true={loaded}>
+      <lightning-datatable
+        data={accountRecord}
+        key-field="id"
+        columns={tableColumns}
+      ></lightning-datatable>
+    </template>
+
+    <template if:false={loaded}>
+      <div class="spinner">
+        <lightning-spinner alternative-text="Loading"></lightning-spinner>
+      </div>
+    </template>
+  </div>
+</template>
